@@ -1,7 +1,4 @@
 module.exports = {
-  /*
-  ** Headers of the page
-  */
   head: {
     title: 'fukuokago.tech',
     meta: [
@@ -11,22 +8,17 @@ module.exports = {
     ],
     link: [
       { rel: 'stylesheet', href: '//fonts.googleapis.com/css?family=Quicksand|Roboto+Slab' },
+      { rel: 'icon', type: 'image/png', href: '/favicon-96x96.png', sizes: '96x96' },
+      { rel: 'icon', type: 'image/png', href: '/favicon-32x32.png', sizes: '32x32' },
+      { rel: 'icon', type: 'image/png', href: '/favicon-16x16.png', sizes: '16x16' },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  /*
-  ** Customize the progress bar color
-  */
   loading: { color: '#3B8070' },
-  /*
-  ** Build configuration
-  */
   build: {
-    /*
-    ** Run ESLint on save
-    */
-    extend (config, { isDev, isClient }) {
-      if (isDev && isClient) {
+    vendor: ['axios'],
+    extend (config, ctx) {
+      if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
@@ -35,6 +27,12 @@ module.exports = {
         })
       }
     }
-  }
+  },
+  modules: [
+    '@nuxtjs/axios',
+  ],
+  serverMiddleware: [
+    '~/api/index.js'
+  ]
 }
 
