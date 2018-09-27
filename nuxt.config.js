@@ -14,7 +14,7 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  loading: { color: '#3B8070' },
+  loading: { color: '#000' },
   build: {
     vendor: ['axios'],
     extend (config, ctx) {

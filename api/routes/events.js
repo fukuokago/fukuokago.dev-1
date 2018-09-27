@@ -1,6 +1,8 @@
 const { Router } = require('express')
 const router = Router()
 const Parser = require('rss-parser')
+const crypto = require('crypto')
+const sanitizeHtml = require('sanitize-html')
 
 const mcache = require('memory-cache')
 const cache = (duration) => {
@@ -20,6 +22,16 @@ const cache = (duration) => {
   }
 }
 
+const sha1 = (plaintext) => {
+  let hash = crypto.createHash('sha1')
+  hash.update(plaintext)
+  return hash.digest('hex')
+}
+
+const allowHtmlTags = {
+  allowedTags: [ 'br', 'b', 'i', 'em', 'strong', 'a', 'h1', 'h2', 'h3', 'p', 'table', 'th', 'tr', 'td', 'tbody' ]
+}
+
 router.get('/events', cache(3600), async function (req, res, next) {
   const parser = new Parser({
     customFields: {
@@ -29,17 +41,20 @@ router.get('/events', cache(3600), async function (req, res, next) {
   const feed = await parser.parseURL('https://fukuokago.connpass.com/ja.atom')
 
   let events = []
-  const max = 3
+  const max = 5
 
   feed.items.reverse().forEach(item => {
     if (events.length < max) {
       const html = item.summary._
       const regex = /開催日時.*(\d{4}\/\d{2}\/\d{2})/
       const matches = html.match(regex)
+      const link = new URL(item.link)
       events.push({
+        id: sha1(item.id),
         title: item.title,
-        link: item.link,
-        date: matches[1]
+        link: `${link.origin}${link.pathname}`,
+        date: matches[1],
+        content: sanitizeHtml(html, allowHtmlTags)
       })
     }
   })

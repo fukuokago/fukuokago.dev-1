@@ -1,13 +1,12 @@
 <template>
   <section class="container">
     <div>
-      <h1 class="title">Fukuoka.go</h1>
+      <h1 class="title"><nuxt-link to="/">Fukuoka.go</nuxt-link></h1>
       <p class="subtitle">A 𝝣Gopher Community in Fukuoka </p>
       <h2 class="description">福岡のGolangコミュニティです。初心者から熟練者まで集まってわいわいしましょう。</h2>
       <ul class="events">
         <li v-for="event in events">
-          {{ event.date }} 
-          <a :href="event.link" target="_blank"> {{ event.title }} </a>
+            {{ event.date }}  -- <nuxt-link :to="`/events/${event.id}`"> {{ event.title }} </nuxt-link>
         </li>
       </ul>
       <div class="links">
@@ -59,6 +58,10 @@ export default {
   display: block;
   font-size: 4em;
   color: #000;
+}
+
+.title a {
+  border-bottom: none;
 }
 
 .subtitle {

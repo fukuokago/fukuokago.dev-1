@@ -13,13 +13,13 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.2",
-    "axios": "^0.16.2",
-    "cache-memory": "^2.1.2",
+    "axios": "^0.18.0",
     "cross-env": "^5.0.1",
     "express": "^4.15.3",
     "memory-cache": "^0.2.0",
     "nuxt": "latest",
     "rss-parser": "^3.4.3",
+    "sanitize-html": "^1.19.0",
     "source-map-support": "^0.4.15"
   },
   "devDependencies": {

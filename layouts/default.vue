@@ -21,6 +21,17 @@ html {
   margin: 0;
 }
 
+a {
+  color: #000;
+  text-decoration: none;
+  border-bottom: 1px solid #000;
+}
+
+a:hover {
+  color: #666;
+  border-bottom: none;
+}
+
 .button--green {
   display: inline-block;
   border-radius: 4px;
