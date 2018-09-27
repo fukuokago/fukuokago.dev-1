@@ -3,6 +3,7 @@ const router = Router()
 const Parser = require('rss-parser')
 const crypto = require('crypto')
 const sanitizeHtml = require('sanitize-html')
+const { URL } = require('url')
 
 const mcache = require('memory-cache')
 const cache = (duration) => {
