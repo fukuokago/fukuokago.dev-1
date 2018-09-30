@@ -1,0 +1,8 @@
+{
+  "name": "fukuokago.tech",
+  "alias": "fukuokago.tech",
+  "public": true,
+  "env": {
+    "NODE_ENV": "production"
+  }
+}
