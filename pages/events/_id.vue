@@ -14,7 +14,7 @@
 <script>
 export default {
   async asyncData ({ app, params }) {
-    const events = await app.$axios.$get('/api/events')
+    const events = await app.$axios.$get('/events')
     let data = {}
     events.forEach(event => {
       if (event.id === params.id) {
