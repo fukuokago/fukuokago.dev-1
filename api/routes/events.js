@@ -4,24 +4,7 @@ const Parser = require('rss-parser')
 const crypto = require('crypto')
 const sanitizeHtml = require('sanitize-html')
 const { URL } = require('url')
-
-const mcache = require('memory-cache')
-const cache = (duration) => {
-  return (req, res, next) => {
-    let key = '_express_' + req.originalUrl || req.url
-    let cachedBody = mcache.get(key)
-    if (cachedBody) {
-      res.send(cachedBody)
-    } else {
-      res.sendResponse = res.send
-      res.send = (body) => {
-        mcache.put(key, body, duration * 1000)
-        res.sendResponse(body)
-      }
-      next()
-    }
-  }
-}
+const cache = require('../middleware/cache')
 
 const sha1 = (plaintext) => {
   let hash = crypto.createHash('sha1')
@@ -30,7 +13,10 @@ const sha1 = (plaintext) => {
 }
 
 const allowHtmlTags = {
-  allowedTags: [ 'br', 'b', 'i', 'em', 'strong', 'a', 'h1', 'h2', 'h3', 'p', 'table', 'th', 'tr', 'td', 'tbody' ]
+  allowedTags: [ 'img', 'br', 'b', 'i', 'em', 'strong', 'a', 'h1', 'h2', 'h3', 'p', 'table', 'th', 'tr', 'td', 'tbody', 'ul', 'li' ],
+  allowedAttributes: {
+    img: ['src', 'width' ]
+  }
 }
 
 router.get('/events', cache(3600), async function (req, res, next) {
