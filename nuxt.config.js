@@ -1,3 +1,5 @@
+const isProd = process.env.NODE_ENV === 'production'
+
 module.exports = {
   head: {
     title: 'fukuokago.tech',
@@ -16,7 +18,6 @@ module.exports = {
   },
   loading: { color: '#000' },
   build: {
-    vendor: ['axios'],
     extend (config, ctx) {
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
@@ -33,6 +34,13 @@ module.exports = {
   ],
   serverMiddleware: [
     '~/api/index.js'
-  ]
+  ],
+  axios: {
+    prefix: '/api',
+    host: isProd ? 'fukuokago.tech' : 'localhost',
+    port: isProd ? 443 : 3000,
+    https: isProd,
+    debug: false
+  }
 }
 
