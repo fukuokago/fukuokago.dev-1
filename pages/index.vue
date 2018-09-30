@@ -88,18 +88,51 @@ export default {
   font-size: 17px;
   color: #000;
   padding-top: 30px;
-  padding-bottom: 15px;
+  padding-bottom: 40px;
+}
+
+.container {
+  margin: auto;
+  overflow: hidden;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(328px, 1fr));
+  padding: 0 30px 30px;
 }
 
 .events {
-  list-style-type: none;
   text-align: left;
-  padding: 20px 30px 10px;
-  line-height: 1.5;
+  width: 328px;
+  border-radius: 5px;
+  padding: 18px;
+  border: 1px solid #000;
+  margin: 10px auto 20px;
 }
 
-.events a {
-  color: #000;
+.events h2 {
+  font-weight: bold;
+  padding: 0 0 18px;
+}
+
+.events p {
+  font-size: 12px;
+  line-height: 1.5;
+  padding-bottom: 20px;
+}
+
+.events ul {
+  list-style-type: none;
+  padding: 0;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  line-height: 1.7;
+}
+
+.tweet {
+  width: 350px;
+  margin: 0 auto;
+  padding-right: 20px;
+  padding-bottom: 20px;
 }
 
 .links {
