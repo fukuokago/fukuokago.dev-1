@@ -3,12 +3,25 @@
     <div>
       <h1 class="title"><nuxt-link to="/">Fukuoka.go</nuxt-link></h1>
       <p class="subtitle">A 𝝣Gopher Community in Fukuoka </p>
-      <h2 class="description">福岡のGolangコミュニティです。初心者から熟練者まで集まってわいわいしましょう。</h2>
-      <ul class="events">
-        <li v-for="event in events">
-            {{ event.date }}  -- <nuxt-link :to="`/events/${event.id}`"> {{ event.title }} </nuxt-link>
-        </li>
-      </ul>
+      <p class="description">福岡のGolangコミュニティです。初心者から熟練者まで集まってわいわいしましょう。</p>
+
+      <div class="container">
+        <div class="events item">
+          <h2>Events</h2>
+          <p>４ヶ月に１度のペースでイベントを開催しています。イベント参加は<a href="https://fukuokago.connpass.com/" target="_blank">Connpass</a>からお申し込みください。</p>
+          <ul>
+            <li v-for="event in events">
+                {{ event.date }}  -- <nuxt-link :to="`/events/${event.id}`"> {{ event.title }} </nuxt-link>
+            </li>
+          </ul>
+        </div>
+
+        <div v-for="tweet in tweets" class="tweet item">
+          <blockquote class="twitter-tweet" data-lang="en" data-link-color="#666" width="350"><a :href=tweet.link></a></blockquote>
+        </div>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+
       <div class="links">
         <a
           href="https://fukuokago.connpass.com/"
