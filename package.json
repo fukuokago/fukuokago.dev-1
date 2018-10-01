@@ -32,5 +32,14 @@
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1"
+  },
+  "now": {
+    "name": "fukuokago.tech",
+    "alias": "fukuokago.tech",
+    "public": true,
+    "type": "npm",
+    "env": {
+      "NODE_ENV": "production"
+    }
   }
 }
