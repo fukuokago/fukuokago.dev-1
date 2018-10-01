@@ -25,26 +25,30 @@ router.get('/events', cache(3600), async function (req, res, next) {
       item: ['summary']
     }
   })
-  const feed = await parser.parseURL('https://fukuokago.connpass.com/ja.atom')
 
   let events = []
   const max = 5
 
-  feed.items.reverse().forEach(item => {
-    if (events.length < max) {
-      const html = item.summary._
-      const regex = /開催日時.*(\d{4}\/\d{2}\/\d{2})/
-      const matches = html.match(regex)
-      const link = new URL(item.link)
-      events.push({
-        id: sha1(item.id),
-        title: item.title,
-        link: `${link.origin}${link.pathname}`,
-        date: matches[1],
-        content: sanitizeHtml(html, allowHtmlTags)
-      })
-    }
-  })
+  try {
+    const feed = await parser.parseURL('https://fukuokago.connpass.com/ja.atom')
+    feed.items.reverse().forEach(item => {
+      if (events.length < max) {
+        const html = item.summary._
+        const regex = /開催日時.*(\d{4}\/\d{2}\/\d{2})/
+        const matches = html.match(regex)
+        const link = new URL(item.link)
+        events.push({
+          id: sha1(item.id),
+          title: item.title,
+          link: `${link.origin}${link.pathname}`,
+          date: matches[1],
+          content: sanitizeHtml(html, allowHtmlTags)
+        })
+      }
+    })
+  } catch(e) {
+    console.error(e.message)
+  }
 
   res.json(events)
 })

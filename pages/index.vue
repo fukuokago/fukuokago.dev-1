@@ -35,9 +35,14 @@
 <script>
 export default {
   async asyncData ({ app }) {
-    const events = await app.$axios.$get('/events')
-    const tweets = await app.$axios.$get('/tweets')
-    return { events: events, tweets: tweets }
+    try {
+      const events = await app.$axios.$get('/events')
+      const tweets = await app.$axios.$get('/tweets')
+      return { events: events, tweets: tweets }
+    } catch(e) {
+      console.error(e.message)
+      return { events: [], tweets: [] }
+    }
   }
 }
 </script>
