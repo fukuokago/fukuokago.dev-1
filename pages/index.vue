@@ -6,14 +6,16 @@
       <p class="description">福岡のGolangコミュニティです。初心者から熟練者まで集まってわいわいしましょう。</p>
 
       <div class="container">
-        <div class="events item">
-          <h2>Events</h2>
-          <p>４ヶ月に１度のペースでイベントを開催しています。イベント参加は<a href="https://fukuokago.connpass.com/" target="_blank">Connpass</a>からお申し込みください。</p>
-          <ul>
-            <li v-for="event in events">
-                {{ event.date }}  -- <nuxt-link :to="`/events/${event.id}`"> {{ event.title }} </nuxt-link>
-            </li>
-          </ul>
+        <div class="item">
+          <div class="events">
+            <h2>Events</h2>
+            <p>４ヶ月に１度のペースでイベントを開催しています。イベント参加は<a href="https://fukuokago.connpass.com/" target="_blank">Connpass</a>からお申し込みください。</p>
+            <ul>
+              <li v-for="event in events">
+                  {{ event.date }}  -- <nuxt-link :to="`/events/${event.id}`"> {{ event.title }} </nuxt-link>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <div v-for="tweet in tweets" class="tweet item">
@@ -86,12 +88,19 @@ export default {
   padding: 0 30px 30px;
 }
 
+.item {
+  width: 350px;
+  margin: 0 auto;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
 .events {
   text-align: left;
   width: 328px;
   border-radius: 5px;
   padding: 18px;
-  border: 1px solid #000;
+  border: 1px solid #e1e8ed;
   margin: 10px auto 20px;
 }
 
@@ -101,7 +110,7 @@ export default {
 }
 
 .events p {
-  font-size: 12px;
+  font-size: .9em;
   line-height: 1.5;
   padding-bottom: 20px;
 }
@@ -112,13 +121,6 @@ export default {
   padding-right: 20px;
   padding-bottom: 10px;
   line-height: 1.7;
-}
-
-.tweet {
-  width: 350px;
-  margin: 0 auto;
-  padding-right: 20px;
-  padding-bottom: 20px;
 }
 
 .links {
@@ -152,7 +154,7 @@ export default {
     display: block;
   }
 
-  .tweet {
+  .item {
     width: 100%;
     float: none;
     margin: 0 auto;
