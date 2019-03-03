@@ -63,23 +63,28 @@ const config = {
       ],
       lazy: true,
       langDir: 'lang/',
-      defaultLocale: 'en',
+      defaultLocale: 'ja',
       detectBrowserLanguage: {
         useCookie: true,
         cookieKey: 'i18n_redirected',
         alwaysRedirect: false,
-        fallbackLocale: 'en'
+        fallbackLocale: 'ja'
       },
       vueI18n: {
-        fallbackLocale: 'en'
+        fallbackLocale: 'ja'
       },
       vueI18nLoader: true,
       silentTranslationWarn: true
     }],
     '@nuxtjs/axios',
     '@nuxtjs/bulma',
+    '@nuxtjs/proxy',
     '@nuxtjs/pwa'
   ],
+  proxy: {
+    '/events': 'http://localhost:9000',
+    '/tweets': 'http://localhost:9000'
+  },
   axios: {
   },
   build: {
@@ -112,5 +117,4 @@ const config = {
   }
 }
 
-// @ts-ignore: for editor
-export = config
+export default config
