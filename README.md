@@ -1,10 +1,14 @@
-# fukuokago.dev
+fukuokago.dev
+==
 
-> The Gopher Community for Fukuoka, Japan
+The Gopher Community for Fukuoka, Japan.
 
-## Build Setup
+👉 https://fukuokago.dev/
 
-``` bash
+Build Setup
+--
+
+```sh
 # install dependencies
 $ npm install
 
@@ -18,5 +22,3 @@ $ npm start
 # generate static project
 $ npm run generate
 ```
-
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
