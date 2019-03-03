@@ -1,4 +1,4 @@
-fukuokago.tech
+fukuokago.dev
 ==
 
-https://fukuokago.tech/
+Fukuoka.go Official Site: https://fukuokago.dev/
