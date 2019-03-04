@@ -1,5 +1,4 @@
 const pkg = require('./package')
-const apiserver = process.env.NODE_ENV === 'production' ? 'https://fukuokago.dev' : 'http://localhost:9000'
 
 const config = {
   mode: 'spa',
@@ -83,8 +82,10 @@ const config = {
     '@nuxtjs/pwa'
   ],
   proxy: {
-    '/events': apiserver,
-    '/tweets': apiserver
+    '/.netlify': {
+      target: 'http://localhost:9000',
+      pathRewrite: { '^/.netlify/functions': '' }
+    }
   },
   axios: {
   },

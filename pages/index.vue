@@ -44,8 +44,8 @@ import { Component, Vue } from 'vue-property-decorator'
   },
   async asyncData({ $axios }: any) {
     try {
-      const events = await $axios.$get('/events')
-      const tweets = await $axios.$get('/tweets')
+      const events = await $axios.$get('/.netlify/functions/events')
+      const tweets = await $axios.$get('/.netlify/functions/tweets')
       return { events: events, tweets: tweets }
     } catch(e) {
       console.error(e.message)
