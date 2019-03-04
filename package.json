@@ -8,7 +8,7 @@
     "dev": "run-p dev:netlify dev:nuxt",
     "dev:nuxt": "nuxt-ts",
     "dev:netlify": "netlify-lambda serve fn",
-    "build": "npm i && npm run build:netlify && nuxt-ts build",
+    "build": "npm i && npm run build:netlify && cross-env NUXT_HOST=fukuokago.dev NUXT_PORT=443 nuxt-ts build",
     "build:netlify": "netlify-lambda build fn",
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate",
