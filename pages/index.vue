@@ -12,7 +12,7 @@
             <p>４ヶ月に１度のペースでイベントを開催しています。イベント参加は<a href="https://fukuokago.connpass.com/" target="_blank">Connpass</a>からお申し込みください。</p>
             <ul>
               <li v-for="event in events">
-                  {{ event.date }}  -- <nuxt-link :to="`/events/${event.id}`"> {{ event.title }} </nuxt-link>
+                  {{ event.date }} <nuxt-link :to="`/events/${event.id}`"> {{ event.title }} </nuxt-link>
               </li>
             </ul>
           </div>
@@ -135,6 +135,7 @@ export default class PageIndex extends Vue {}
   padding-right: 20px;
   padding-bottom: 10px;
   line-height: 1.7;
+  font-size: .8em;
 }
 
 .links {
