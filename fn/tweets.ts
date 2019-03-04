@@ -1,13 +1,14 @@
 import Parser from 'rss-parser'
 
+interface ITweet {
+  link: string,
+  date: string,
+  body: string,
+  user: string
+}
+
 exports.handler = async () => {
   const parser = new Parser()
-  interface ITweet {
-    link: string,
-    date: string,
-    body: string,
-    user: string
-  }
   let tweets: ITweet[] = []
   const max = 15
 

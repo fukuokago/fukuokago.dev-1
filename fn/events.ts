@@ -16,20 +16,20 @@ const allowHtmlTags = {
   }
 }
 
+interface IEvent {
+  id: string,
+  title: string,
+  link: string,
+  date: string,
+  content: string
+}
+
 exports.handler = async () => {
   const parser = new Parser({
     customFields: {
       item: ['summary']
     }
   })
-
-  interface IEvent {
-    id: string,
-    title: string,
-    link: string,
-    date: string,
-    content: string
-  }
 
   let events: IEvent[] = []
   const max = 5

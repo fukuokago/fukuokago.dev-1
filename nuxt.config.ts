@@ -53,7 +53,7 @@ const config = {
   plugins: [],
   modules: [
     ['nuxt-imagemin'],
-    ['@nuxtjs/google-analytics', { id: 'UA-328462-17' }],
+    ['@nuxtjs/google-analytics', { id: 'UA-328462-18' }],
     ['nuxt-i18n', {
       seo: false,
       parsePages: false,
@@ -104,15 +104,6 @@ const config = {
       })
       // 5MB
       config.performance.maxAssetSize = 5000000
-      // Run ESLint on save
-      /*if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }*/
     }
   }
 }

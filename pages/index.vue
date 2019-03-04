@@ -34,13 +34,6 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { NuxtAxiosInstance } from '@nuxtjs/axios'
-
-declare module 'vue/types/vue' {
-  interface Vue {
-    $axios: NuxtAxiosInstance
-  }
-}
 
 @Component({
   head() {
@@ -48,21 +41,18 @@ declare module 'vue/types/vue' {
       title: 'Fukuoka.go: The Gopher Community in Fukuoka, Japan',
       titleTemplate: '%s'
     }
-  }
-})
-export default class PageIndex extends Vue {
-  // @ts-ignore: for editor
-  async asyncData({ $axios }) {
+  },
+  async asyncData({ $axios }: any) {
     try {
       const events = await $axios.$get('/events')
       const tweets = await $axios.$get('/tweets')
       return { events: events, tweets: tweets }
     } catch(e) {
       console.error(e.message)
-      return { events: [], tweets: [] }
     }
   }
-}
+})
+export default class PageIndex extends Vue {}
 </script>
 
 <style scoped>
