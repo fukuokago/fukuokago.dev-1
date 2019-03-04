@@ -2,3 +2,5 @@
   command = "npm run build"
   functions = "functions"
   publish = "dist"
+[context.master]
+  NODE_ENV = "production"
