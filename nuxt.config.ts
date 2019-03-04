@@ -1,4 +1,5 @@
 const pkg = require('./package')
+const isProd = process.env.NODE_ENV === 'production'
 
 const config = {
   mode: 'spa',
@@ -88,6 +89,10 @@ const config = {
     }
   },
   axios: {
+    host: isProd ? 'fukuokago.dev' : 'localhost',
+    port: isProd ? 443 : 3000,
+    https: isProd,
+    debug: false
   },
   build: {
     postcss: {
