@@ -26,7 +26,7 @@
 
       <div class="links">
         <a href="https://github.com/fukuokago" target="_blank" class="button--grey">GitHub</a>
-        <a href="https://slack.fukuokago.tech" target="_blank" class="button--grey">Slack</a>
+        <a href="https://join.slack.com/t/fukuokago/shared_invite/enQtNDI2OTYyNjg4NTE5LWYzNzBkYTY2NjYyZjBmMTk0OWFkNTE3ZmIxYWRhOGFhMWFjYjI0ZjBhNTQ0YTY1YmUyNTQxNGEyZGE0ZjkxNjE" target="_blank" class="button--grey">Slack</a>
       </div>
     </div>
   </section>
