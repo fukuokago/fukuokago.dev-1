@@ -35,7 +35,7 @@
     "nuxt-imagemin": "^1.0.0",
     "nuxt-ts-edge": "^2.5.0-25859531.2dd41719",
     "rss-parser": "^3.6.3",
-    "sanitize-html": "^1.20.0",
+    "sanitize-html": "^2.3.2",
     "typescript": "^3.3.3333",
     "vue-property-decorator": "^7.3.0",
     "vuex-class": "^0.3.1",
